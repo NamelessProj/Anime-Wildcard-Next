@@ -112,7 +112,7 @@ const UserTopPage = ({data, getAdultContent, setStage}) => {
                                 ))}
                             </div>
 
-                            <div>
+                            <div className="min-h-[400px]">
                                 {animeCards}
                             </div>
                         </div>
