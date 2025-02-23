@@ -29,6 +29,11 @@ const UserTopContainer = ({username, getAdultContent, setStage}) => {
         variables: {username}
     });
 
+    const handleGoBack = (e) => {
+        e.preventDefault();
+        setStage(0);
+    }
+
     return (
         <>
             {loading ? (
@@ -44,9 +49,13 @@ const UserTopContainer = ({username, getAdultContent, setStage}) => {
                                     {error.message}
                                 </p>
                             </div>
-                            <Link href="/">
+                            <button
+                                type="button"
+                                onClick={handleGoBack}
+                                className="flex justify-center items-center bg-amber-600 bg-opacity-60 hover:bg-opacity-100 focus-visible:bg-opacity-100 transition transition-opacity py-3 px-6 rounded-md"
+                            >
                                 Go Back
-                            </Link>
+                            </button>
                         </main>
                     ) : (
                         <main>
