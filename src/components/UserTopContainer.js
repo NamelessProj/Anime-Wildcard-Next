@@ -40,7 +40,7 @@ const UserTopContainer = ({username, getAdultContent, setStage}) => {
                         <main className="flex justify-center items-center">
                             <div className="p-3 rounded-md bg-red-600">
                                 <p className="text-center mx-auto">
-                                    {error}
+                                    {error.message}
                                 </p>
                             </div>
                         </main>
