@@ -86,7 +86,7 @@ const UserTopPage = ({data, getAdultContent, setStage}) => {
                     </div>
 
                     {error ? (
-                        <div className="p-3 rounded-md w-fit mx-auto my-6 bg-red-600 my-2">
+                        <div className="p-3 rounded-md w-fit mx-auto my-6 bg-red-600">
                             <p className="text-center mx-auto">
                                 {error}
                             </p>
