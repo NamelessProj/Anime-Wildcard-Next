@@ -23,7 +23,8 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, h
                     <button
                         type="button"
                         onClick={handleNext}
-                        className="w-full flex justify-center items-center bg-amber-800 bg-opacity-60 hover:bg-opacity-100 focus-visible:bg-opacity-100 transition transition-opacity py-3 rounded-md">
+                        className="w-full flex justify-center items-center bg-amber-800 bg-opacity-60 hover:bg-opacity-100 focus-visible:bg-opacity-100 transition transition-opacity py-3 rounded-md"
+                    >
                         Next
                     </button>
                 </form>
