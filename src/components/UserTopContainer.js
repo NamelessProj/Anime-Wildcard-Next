@@ -1,7 +1,6 @@
 import {gql, useQuery} from "@apollo/client";
 import DefaultLoader from "@/components/DefaultLoader";
 import UserTopPage from "@/components/UserTopPage";
-import Link from "next/link";
 
 const ANIME_QUERY = gql`
 query ($username: String) {
