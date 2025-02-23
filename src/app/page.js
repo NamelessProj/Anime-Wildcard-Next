@@ -2,6 +2,11 @@
 
 import React from "react";
 import UserForm from "@/components/UserForm";
+import UserTopContainer from "@/components/UserTopContainer";
+import {ApolloProvider} from "@apollo/client";
+import createApolloClient from "../../apollo-client";
+
+const client = createApolloClient();
 
 export default function Home() {
     const [username, setUsername] = React.useState('');
@@ -21,7 +26,7 @@ export default function Home() {
     }
 
     return (
-        <>
+        <ApolloProvider client={client}>
             {stage === 0 && (
                 <UserForm
                     username={username}
@@ -32,6 +37,14 @@ export default function Home() {
                     error={error}
                 />
             )}
-        </>
+
+            {stage === 1 && (
+                <UserTopContainer
+                    username={username}
+                    getAdultContent={getAdultContent}
+                    setStage={setStage}
+                />
+            )}
+        </ApolloProvider>
     );
 }
