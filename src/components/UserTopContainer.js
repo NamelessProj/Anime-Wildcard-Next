@@ -1,6 +1,7 @@
 import {gql, useQuery} from "@apollo/client";
 import DefaultLoader from "@/components/DefaultLoader";
 import UserTopPage from "@/components/UserTopPage";
+import Link from "next/link";
 
 const ANIME_QUERY = gql`
 query ($username: String) {
@@ -37,12 +38,15 @@ const UserTopContainer = ({username, getAdultContent, setStage}) => {
             ) : (
                 <>
                     {error ? (
-                        <main className="flex justify-center items-center">
+                        <main className="flex flex-col gap-6 justify-center items-center">
                             <div className="p-3 rounded-md bg-red-600">
                                 <p className="text-center mx-auto">
                                     {error.message}
                                 </p>
                             </div>
+                            <Link href="/">
+                                Go Back
+                            </Link>
                         </main>
                     ) : (
                         <main>
