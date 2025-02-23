@@ -12,7 +12,7 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, h
                         </p>
                     </div>
                 )}
-                <form>
+                <form onSubmit={handleNext}>
                     <TextInput
                         id="username"
                         name="username"
