@@ -1,10 +1,17 @@
 import TextInput from "@/components/TextInput";
 import Checkbox from "@/components/Checkbox";
 
-const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, handleNext}) => {
+const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, handleNext, error}) => {
     return (
         <main className="flex justify-center items-center">
             <div className="card w-[min(100%,420px)] bg-gray-800 rounded-xl px-10 pt-12 pb-8">
+                {error && (
+                    <div className="mb-8 p-3 rounded-md bg-red-600">
+                        <p className="text-center mx-auto">
+                            {error}
+                        </p>
+                    </div>
+                )}
                 <form>
                     <TextInput
                         id="username"
