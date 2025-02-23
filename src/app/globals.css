@@ -2,11 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --accent: #bc4b27;
+@property --accent {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #bc4b27;
+}
+@property --background {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #0a0a0a;
+}
+@property --foreground {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #ededed;
+}
 
+:root {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
@@ -64,6 +76,62 @@ form .text-input input:is(:focus, .not-empty) ~ label{
 form .text-input input:required ~ label::after{
   content: "*";
   padding-left: 5px;
+}
+
+
+
+.checkbox-container label{
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox-container label input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  appearance: none;
+}
+.checkbox-container label .checkmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 4px;
+  background-color: #eee;
+}
+.checkbox-container label:hover input ~ .checkmark{
+  background-color: #ccc;
+}
+.checkbox-container label input:checked ~ .checkmark{
+  background-color: var(--accent);
+}
+.checkbox-container label .checkmark:after{
+  content: '';
+  position: absolute;
+  display: none;
+}
+.checkbox-container label input:checked ~ .checkmark:after{
+  display: block;
+}
+.checkbox-container label .checkmark:after{
+  left: 9px;
+  top: 5px;
+  width: 7px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 
