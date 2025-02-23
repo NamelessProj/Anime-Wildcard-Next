@@ -1,12 +1,14 @@
 import React from "react";
 import shuffleList from "@/utils/shuffleList";
 import DefaultLoader from "@/components/DefaultLoader";
+import TopCard from "@/components/TopCard";
+import AnimeCard from "@/components/AnimeCard";
 
 const UserTopPage = ({data, getAdultContent, setStage}) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [animeList, setAnimeList] = React.useState([]);
-    const [topCardArray, setTopCardArray] = React.useState([]);
+    const [topCardArray, setTopCardArray] = React.useState(Array(5).fill(null));
     const [error, setError] = React.useState('');
     const [userError, setUserError] = React.useState('');
     const [canClick, setCanClick] = React.useState(false);
@@ -33,9 +35,36 @@ const UserTopPage = ({data, getAdultContent, setStage}) => {
         }
     }, [data]);
 
+    React.useEffect(() => {
+        const aniLength = animeList.length;
+        if(aniLength > 0 && currentIndex < aniLength){
+            setAnimeCards([...animeCards, <AnimeCard key={animeList[currentIndex].media.id} anime={animeList[currentIndex].media} />]);
+        }
+    }, [currentIndex, animeList]);
+
     const handleBack = (e) => {
         e.preventDefault();
         setStage(0);
+    }
+
+    const handleTopCardArray = (index) => {
+        setUserError('');
+
+        if(!canClick) return;
+
+        if(topCardArray[index] !== null){
+            setUserError("This place is already taken.");
+            return;
+        }
+
+        setCanClick(false);
+        setTopCardArray(topCardArray.map((anime, i) => i === index ? animeList[currentIndex] : anime));
+
+        setCurrentIndex(currentIndex + 1);
+
+        setTimeout(() => {
+            setCanClick(true);
+        }, 3000);
     }
 
     return (
@@ -57,7 +86,7 @@ const UserTopPage = ({data, getAdultContent, setStage}) => {
                     </div>
 
                     {error ? (
-                        <div className="p-3 rounded-md bg-red-600 my-2">
+                        <div className="p-3 rounded-md w-fit mx-auto my-6 bg-red-600 my-2">
                             <p className="text-center mx-auto">
                                 {error}
                             </p>
@@ -65,19 +94,26 @@ const UserTopPage = ({data, getAdultContent, setStage}) => {
                     ) : (
                         <div>
                             {userError && (
-                                <div className="p-3 rounded-md bg-red-600 my-2">
+                                <div className="w-fit mx-auto p-3 rounded-md bg-red-600 my-2">
                                     <p className="text-center mx-auto">
                                         {userError}
                                     </p>
                                 </div>
                             )}
 
-                            <div>
-                                Top card
+                            <div className="flex justify-center flex-row-reverse flex-wrap-reverse gap-5 my-12">
+                                {topCardArray.map((_, i) => (
+                                    <TopCard
+                                        key={i}
+                                        index={i}
+                                        anime={topCardArray[i]}
+                                        handler={() => handleTopCardArray(i)}
+                                    />
+                                ))}
                             </div>
 
                             <div>
-                                Current Card
+                                {animeCards}
                             </div>
                         </div>
                     )}
