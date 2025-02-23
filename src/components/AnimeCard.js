@@ -24,11 +24,12 @@ const AnimeCard = ({anime}) => {
     const name = anime.title.english || anime.title.romaji;
 
     return (
-        <div className="anime-card fixed left-1/2 bottom-[30%] z-10" style={style}>
+        <div className="anime-card fixed left-1/2 bottom-[50px] z-10" style={style}>
             <ReactFlipCard
                 direction="horizontal"
                 flipTrigger="disabled"
                 flipByProp={isFlipped}
+                containerCss="w-60 h-96"
                 frontComponent={
                     <AnimeCardFront
                         cardClassName={cardClassName}
