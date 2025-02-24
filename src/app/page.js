@@ -30,22 +30,22 @@ export default function Home() {
         {
             value: "SPECIAL",
             label: "Special",
-            checked: true
+            checked: false
         },
         {
             value: "OVA",
             label: "OVA",
-            checked: true
+            checked: false
         },
         {
             value: "ONA",
             label: "ONA",
-            checked: true
+            checked: false
         },
         {
             value: "MUSIC",
             label: "Music",
-            checked: true
+            checked: false
         }
     ]);
 
