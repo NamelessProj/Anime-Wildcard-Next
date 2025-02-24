@@ -10,6 +10,7 @@ query ($username: String) {
         media {
           id,
           isAdult,
+          format,
           title {
             romaji,
             english
@@ -23,7 +24,8 @@ query ($username: String) {
   }
 }`;
 
-const UserTopContainer = ({username, getAdultContent, setStage}) => {
+const UserTopContainer = ({username, getAdultContent, setStage, allFormats}) => {
+    const checkedFormats = allFormats.filter((format) => format.checked).map((format) => format.value);
     const {loading, error, data} = useQuery(ANIME_QUERY, {
         variables: {username}
     });
@@ -58,7 +60,12 @@ const UserTopContainer = ({username, getAdultContent, setStage}) => {
                         </main>
                     ) : (
                         <main>
-                            <UserTopPage data={data} getAdultContent={getAdultContent} setStage={setStage} />
+                            <UserTopPage
+                                data={data}
+                                getAdultContent={getAdultContent}
+                                setStage={setStage}
+                                checkedFormats={checkedFormats}
+                            />
                         </main>
                     )}
                 </>
