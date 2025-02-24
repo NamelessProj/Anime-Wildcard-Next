@@ -53,13 +53,15 @@ export default function Home() {
     const [stage, setStage] = React.useState(0);
 
     const handleCheckChange = (value) => {
-        const updatedFormats = allFormats.map((format) => format.value === value ? {...format, checked: !format.checked} : format);
+        const updatedFormats = allFormats.map((format) => format.value === value ? {...format, checked: !format.checked} : format); // Toggle checked value
         setAllFormats(updatedFormats);
     }
 
     const handleNext = (e) => {
         e.preventDefault();
         setError('');
+
+        // Check that username is not empty
         if(!username || username === ""){
             setError("Please enter your Anilist username.");
             document.querySelector('input[name="username"]').focus();
@@ -72,6 +74,7 @@ export default function Home() {
             return;
         }
 
+        // Proceed to next stage
         setStage(stage + 1);
     }
 

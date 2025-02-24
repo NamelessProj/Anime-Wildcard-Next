@@ -6,6 +6,7 @@ import AnimeCardBack from "@/components/AnimeCardBack";
 const AnimeCard = ({anime}) => {
     const [isFlipped, setIsFlipped] = React.useState(false);
 
+    // Flip the card after 2.3 seconds
     setTimeout(() => {
         setIsFlipped(true);
     }, 2300);
@@ -14,13 +15,16 @@ const AnimeCard = ({anime}) => {
 
     const cardClassName = "w-60 h-96 rounded-md overflow-clip";
 
+    // Randomly rotate the card
     const style = {"--rotate-angle": `${Math.random() * 10 - 5}deg`};
 
+    // Open the anime page on AniList
     const handleClick = (e) => {
         e.preventDefault();
         window.open(`https://anilist.co/anime/${anime.id}`, "_blank");
     }
 
+    // Get the anime name
     const name = anime.title.english || anime.title.romaji;
 
     return (

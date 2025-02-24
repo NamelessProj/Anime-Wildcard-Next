@@ -2,6 +2,7 @@ import {gql, useQuery} from "@apollo/client";
 import DefaultLoader from "@/components/DefaultLoader";
 import UserTopPage from "@/components/UserTopPage";
 
+// Define the query to fetch the user's anime list
 const ANIME_QUERY = gql`
 query ($username: String) {
   MediaListCollection (userName: $username, type: ANIME, status_not_in: [PAUSED, PLANNING, DROPPED]) {
@@ -25,11 +26,15 @@ query ($username: String) {
 }`;
 
 const UserTopContainer = ({username, getAdultContent, setStage, allFormats}) => {
+    // Filter the formats that are checked
     const checkedFormats = allFormats.filter((format) => format.checked).map((format) => format.value);
+
+    // Fetch the user's anime list
     const {loading, error, data} = useQuery(ANIME_QUERY, {
         variables: {username}
     });
 
+    // Go back to the form
     const handleGoBack = (e) => {
         e.preventDefault();
         setStage(0);

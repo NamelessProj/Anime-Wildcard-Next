@@ -15,55 +15,70 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats}) => {
 
     const [animeCards, setAnimeCards] = React.useState([]);
 
+    // Set the anime list
     React.useEffect(() => {
         if(data && data.MediaListCollection && data.MediaListCollection.lists){
-            const list = data.MediaListCollection.lists.flatMap(list => list.entries);
-            const shuffledList = shuffleList(getAdultContent ? list : list.filter(entry => !entry.media.isAdult));
+            const list = data.MediaListCollection.lists.flatMap(list => list.entries); // Flatten the lists
+            const shuffledList = shuffleList(getAdultContent ? list : list.filter(entry => !entry.media.isAdult)); // Shuffle the list
 
+            // Filter the list by the checked formats
             const filteredList = shuffledList.filter(entry => checkedFormats.includes(entry.media.format));
 
+            // Check if the list has at least 5 anime
             if(filteredList.length < 5){
                 setError("You need at least 5 anime in your list.");
                 setIsLoading(false);
                 return;
             }
 
+            // Set the anime list
             setAnimeList(filteredList.slice(0, 5));
             setIsLoading(false);
 
+            // Enable the click after 3 seconds
             setTimeout(() => {
                 setCanClick(true);
             }, 3000);
         }
     }, [data]);
 
+    // Set the anime cards
     React.useEffect(() => {
         const aniLength = animeList.length;
+
+        // Check if the anime list is not empty and the current index is less than the length to set the anime cards
         if(aniLength > 0 && currentIndex < aniLength){
             setAnimeCards([...animeCards, <AnimeCard key={animeList[currentIndex].media.id} anime={animeList[currentIndex].media} />]);
         }
     }, [currentIndex, animeList]);
 
+    // Go back to the form
     const handleBack = (e) => {
         e.preventDefault();
         setStage(0);
     }
 
+    // Handle the top card array
     const handleTopCardArray = (index) => {
         setUserError('');
 
-        if(!canClick) return;
+        if(!canClick) return; // Check if the user can click
 
+        // Check if the current index is empty
         if(topCardArray[index] !== null){
             setUserError("This place is already taken.");
             return;
         }
 
+        // Disable the click
         setCanClick(false);
+
+        // Set the top card array
         setTopCardArray(topCardArray.map((anime, i) => i === index ? animeList[currentIndex] : anime));
 
         setCurrentIndex(currentIndex + 1);
 
+        // Enable the click after 3 seconds
         setTimeout(() => {
             setCanClick(true);
         }, 3000);

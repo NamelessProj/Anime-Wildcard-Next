@@ -7,6 +7,7 @@ const TopCard = ({index, anime, handler}) => {
     const [isFlipped, setIsFlipped] = React.useState(false);
     const [name, setName] = React.useState(index + 1);
 
+    // Set the name and flip the card when the anime is loaded
     React.useEffect(() => {
         if(anime){
             setName(anime.media.title.english || anime.media.title.romaji);
@@ -14,6 +15,7 @@ const TopCard = ({index, anime, handler}) => {
         }
     }, [anime]);
 
+    // Set the back card image
     const backCard = `/card_back_${index + 1}.jpg`;
 
     const imgProps = {
