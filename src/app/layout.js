@@ -1,3 +1,4 @@
+import "rc-tooltip/assets/bootstrap.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
