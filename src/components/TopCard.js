@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactFlipCard from "reactjs-flip-card";
 import Image from "next/image";
+import Tooltip from "rc-tooltip";
 
 const TopCard = ({index, anime, handler}) => {
     const [isFlipped, setIsFlipped] = React.useState(false);
@@ -27,34 +28,35 @@ const TopCard = ({index, anime, handler}) => {
     }
 
     return (
-        <button
-            type="button"
-            onClick={handler}
-            className="w-24"
-            title={name}
-        >
-            <div className="mb-2">
-                <ReactFlipCard
-                    direction="horizontal"
-                    flipTrigger="disabled"
-                    flipByProp={isFlipped}
-                    containerCss="w-24 h-36"
-                    frontComponent={<Image {...imgProps} src={backCard} alt="" />}
-                    backComponent={<Image {...imgProps} src={anime ? anime.media.coverImage.large : backCard} alt={name} />}
-                />
-            </div>
-            {typeof name === "string" ? (
-                <p {...typoProps}>
-                    <a href={`https://anilist.co/anime/${anime.media.id}`} target="_blank">
+        <Tooltip placement="bottom" trigger={['hover']} overlay={<span>{name}</span>}>
+            <button
+                type="button"
+                onClick={handler}
+                className="w-24"
+            >
+                <div className="mb-2">
+                    <ReactFlipCard
+                        direction="horizontal"
+                        flipTrigger="disabled"
+                        flipByProp={isFlipped}
+                        containerCss="w-24 h-36"
+                        frontComponent={<Image {...imgProps} src={backCard} alt="" />}
+                        backComponent={<Image {...imgProps} src={anime ? anime.media.coverImage.large : backCard} alt={name} />}
+                    />
+                </div>
+                {typeof name === "string" ? (
+                    <p {...typoProps}>
+                        <a href={`https://anilist.co/anime/${anime.media.id}`} target="_blank">
+                            {name}
+                        </a>
+                    </p>
+                ) : (
+                    <p {...typoProps}>
                         {name}
-                    </a>
-                </p>
-            ) : (
-                <p {...typoProps}>
-                    {name}
-                </p>
-            )}
-        </button>
+                    </p>
+                )}
+            </button>
+        </Tooltip>
     );
 };
 
