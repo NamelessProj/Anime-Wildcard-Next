@@ -11,8 +11,51 @@ const client = createApolloClient();
 export default function Home() {
     const [username, setUsername] = React.useState('');
     const [getAdultContent, setGetAdultContent] = React.useState(false);
+    const [allFormats, setAllFormats] = React.useState([
+        {
+            value: "TV",
+            label: "TV",
+            checked: true
+        },
+        {
+            value: "TV_SHORT",
+            label: "TV Short",
+            checked: true
+        },
+        {
+            value: "MOVIE",
+            label: "Movie",
+            checked: true
+        },
+        {
+            value: "SPECIAL",
+            label: "Special",
+            checked: true
+        },
+        {
+            value: "OVA",
+            label: "OVA",
+            checked: true
+        },
+        {
+            value: "ONA",
+            label: "ONA",
+            checked: true
+        },
+        {
+            value: "MUSIC",
+            label: "Music",
+            checked: true
+        }
+    ]);
+
     const [error, setError] = React.useState('');
     const [stage, setStage] = React.useState(0);
+
+    const handleCheckChange = (value) => {
+        const updatedFormats = allFormats.map((format) => format.value === value ? {...format, checked: !format.checked} : format);
+        setAllFormats(updatedFormats);
+    }
 
     const handleNext = (e) => {
         e.preventDefault();
@@ -33,7 +76,9 @@ export default function Home() {
                     setUsername={setUsername}
                     getAdultContent={getAdultContent}
                     setGetAdultContent={setGetAdultContent}
+                    allFormats={allFormats}
                     handleNext={handleNext}
+                    handleCheckChange={handleCheckChange}
                     error={error}
                 />
             )}
@@ -42,6 +87,7 @@ export default function Home() {
                 <UserTopContainer
                     username={username}
                     getAdultContent={getAdultContent}
+                    allFormats={allFormats}
                     setStage={setStage}
                 />
             )}
