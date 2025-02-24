@@ -18,8 +18,7 @@ const TopCard = ({index, anime, handler}) => {
 
     const imgProps = {
         className: "w-full h-full rounded-[5px] overflow-clip object-cover",
-        width: 96,
-        height: 144,
+        fill: true,
     }
 
     const typoProps = {

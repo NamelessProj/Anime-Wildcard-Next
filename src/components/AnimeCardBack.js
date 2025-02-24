@@ -8,11 +8,10 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick}) 
         <Tooltip placement="bottom" trigger={["hover"]} overlay={<span>{name}</span>}>
             <div className={`${cardClassName} relative isolate`}>
                 <Image
-                    width={260}
-                    height={400}
                     className={`${imgClassName} absolute inset-0 z-0`}
                     src={anime.coverImage.large}
                     alt={name}
+                    fill
                 />
                 <button
                     type="button"
