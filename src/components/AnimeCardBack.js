@@ -25,7 +25,7 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick}) 
                 </div>
             )}
             <div className="absolute left-0 right-0 bottom-0 p-2 bg-gray-800 bg-opacity-70 backdrop-blur-sm z-10">
-                <p className="text-nowrap whitespace-nowrap overflow-clip text-sm" style={{textOverflow: "ellipsis"}}>
+                <p className="text-nowrap whitespace-nowrap overflow-clip text-xl" style={{textOverflow: "ellipsis"}}>
                     {name}
                 </p>
             </div>
