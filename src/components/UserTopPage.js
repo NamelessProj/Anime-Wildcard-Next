@@ -4,7 +4,7 @@ import DefaultLoader from "@/components/DefaultLoader";
 import TopCard from "@/components/TopCard";
 import AnimeCard from "@/components/AnimeCard";
 
-const UserTopPage = ({data, getAdultContent, setStage}) => {
+const UserTopPage = ({data, getAdultContent, setStage, checkedFormats}) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [animeList, setAnimeList] = React.useState([]);
@@ -20,13 +20,15 @@ const UserTopPage = ({data, getAdultContent, setStage}) => {
             const list = data.MediaListCollection.lists.flatMap(list => list.entries);
             const shuffledList = shuffleList(getAdultContent ? list : list.filter(entry => !entry.media.isAdult));
 
-            if(shuffledList.length < 5){
+            const filteredList = shuffledList.filter(entry => checkedFormats.includes(entry.media.format));
+
+            if(filteredList.length < 5){
                 setError("You need at least 5 anime in your list.");
                 setIsLoading(false);
                 return;
             }
 
-            setAnimeList(shuffledList.slice(0, 5));
+            setAnimeList(filteredList.slice(0, 5));
             setIsLoading(false);
 
             setTimeout(() => {
