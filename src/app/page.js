@@ -65,6 +65,13 @@ export default function Home() {
             document.querySelector('input[name="username"]').focus();
             return;
         }
+
+        // Check that at least one format is checked
+        if(allFormats.filter((format) => format.checked).length === 0){
+            setError("Please select at least one format.");
+            return;
+        }
+
         setStage(stage + 1);
     }
 
