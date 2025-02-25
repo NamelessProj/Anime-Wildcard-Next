@@ -9,7 +9,8 @@ const AnimeCardFront = ({cardClassName, imgClassName, frontImage, blurhash}) => 
                 alt=""
                 placeholder="blur"
                 blurDataURL={blurhash}
-                fill
+                width={260}
+                height={400}
             />
         </div>
     );

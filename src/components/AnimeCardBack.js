@@ -13,7 +13,8 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, b
                     alt={name}
                     placeholder="blur"
                     blurDataURL={blurhash}
-                    fill
+                    width={260}
+                    height={400}
                 />
                 <button
                     type="button"
