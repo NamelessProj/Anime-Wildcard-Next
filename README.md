@@ -1,4 +1,4 @@
-# Wanna Make Your TOP 5 Anime Without Knowing What Will Be The Next Anime?
+# Wanna Make Your TOP 6 Anime Without Knowing What Will Be The Next Anime?
 Then you are in the right place! This project will help you to make your top 6 anime without knowing what will be the next anime.
 
 The project was made using Next.js, Tailwind CSS, and Anilist API.
