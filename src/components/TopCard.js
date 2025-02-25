@@ -30,7 +30,7 @@ const TopCard = ({index, anime, handler, blurhash}) => {
     }
 
     return (
-        <Tooltip placement="bottom" trigger={['hover']} overlay={<span>{name}</span>}>
+        <Tooltip placement="bottom" trigger={['hover']} overlay={<span className="text-base">{name}</span>}>
             <button
                 type="button"
                 onClick={handler}
