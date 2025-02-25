@@ -3,6 +3,7 @@ import shuffleList from "@/utils/shuffleList";
 import DefaultLoader from "@/components/DefaultLoader";
 import TopCard from "@/components/TopCard";
 import AnimeCard from "@/components/AnimeCard";
+import {base64Image} from "@/utils/Base64Image";
 
 const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF_CHOICES}) => {
     const [isLoading, setIsLoading] = React.useState(true);
@@ -48,7 +49,7 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF
 
         // Check if the anime list is not empty and the current index is less than the length to set the anime cards
         if(aniLength > 0 && currentIndex < aniLength){
-            setAnimeCards([...animeCards, <AnimeCard key={animeList[currentIndex].media.id} anime={animeList[currentIndex].media} />]);
+            setAnimeCards([...animeCards, <AnimeCard key={animeList[currentIndex].media.id} anime={animeList[currentIndex].media} blurhash={base64Image} />]);
         }
     }, [currentIndex, animeList]);
 
@@ -125,6 +126,7 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF
                                         index={i}
                                         anime={topCardArray[i]}
                                         handler={() => handleTopCardArray(i)}
+                                        blurhash={base64Image}
                                     />
                                 ))}
                             </div>
