@@ -3,7 +3,7 @@ import {FaExternalLinkAlt} from "react-icons/fa";
 import {TbRating18Plus} from "react-icons/tb";
 import Tooltip from "rc-tooltip";
 
-const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick}) => {
+const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, blurhash}) => {
     return (
         <Tooltip placement="bottom" trigger={["hover"]} overlay={<span>{name}</span>}>
             <div className={`${cardClassName} relative isolate`}>
@@ -11,6 +11,8 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick}) 
                     className={`${imgClassName} absolute inset-0 z-0`}
                     src={anime.coverImage.large}
                     alt={name}
+                    placeholder="blur"
+                    blurDataURL={blurhash}
                     fill
                 />
                 <button

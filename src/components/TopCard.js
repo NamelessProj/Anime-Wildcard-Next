@@ -3,7 +3,7 @@ import ReactFlipCard from "reactjs-flip-card";
 import Image from "next/image";
 import Tooltip from "rc-tooltip";
 
-const TopCard = ({index, anime, handler}) => {
+const TopCard = ({index, anime, handler, blurhash}) => {
     const [isFlipped, setIsFlipped] = React.useState(false);
     const [name, setName] = React.useState(index + 1);
 
@@ -41,8 +41,8 @@ const TopCard = ({index, anime, handler}) => {
                         flipTrigger="disabled"
                         flipByProp={isFlipped}
                         containerCss="w-24 h-36"
-                        frontComponent={<Image {...imgProps} src={backCard} alt="" />}
-                        backComponent={<Image {...imgProps} src={anime ? anime.media.coverImage.large : backCard} alt={name} />}
+                        frontComponent={<Image {...imgProps} src={backCard} placeholder="blur" blurDataURL={blurhash} alt="" />}
+                        backComponent={<Image {...imgProps} src={anime ? anime.media.coverImage.large : backCard} placeholder="blur" blurDataURL={blurhash} alt={name} />}
                     />
                 </div>
                 {typeof name === "string" ? (
