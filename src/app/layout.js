@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
     title: "Anime Wildcard",
-    description: "Wanna Make Your TOP 5 Anime Without Knowing What Will Be The Next Anime?",
+    description: "Wanna Make Your TOP 6 Anime Without Knowing What Will Be The Next Anime?",
     icons: {
         icon: '/Logo.svg',
     },
