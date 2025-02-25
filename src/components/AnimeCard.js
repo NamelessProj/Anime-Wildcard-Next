@@ -5,6 +5,12 @@ import AnimeCardBack from "@/components/AnimeCardBack";
 
 const AnimeCard = ({className="anime-card fixed left-1/2 bottom-[50px] z-10", doRotate=true, displayInt, timeBeforeFlip=2300, anime, frontImage, blurhash}) => {
     const [isFlipped, setIsFlipped] = React.useState(false);
+    const [style, setStyle] = React.useState({});
+
+    // Rotate the card randomly
+    React.useEffect(()  => {
+        if(doRotate) setStyle({"--rotate-angle": `${Math.random() * 10 - 5}deg`});
+    }, [doRotate]);
 
     // Flip the card after 2.3 seconds (timeBeforeFlip)
     setTimeout(() => setIsFlipped(true), timeBeforeFlip);
@@ -12,9 +18,6 @@ const AnimeCard = ({className="anime-card fixed left-1/2 bottom-[50px] z-10", do
     const imgClassName = "w-full h-full object-cover";
 
     const cardClassName = "w-60 h-96 rounded-md overflow-clip";
-
-    // Randomly rotate the card
-    const style = doRotate ? {"--rotate-angle": `${Math.random() * 10 - 5}deg`} : {};
 
     // Open the anime page on AniList
     const handleClick = (e) => {
