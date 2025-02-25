@@ -5,12 +5,14 @@ import UserForm from "@/components/UserForm";
 import UserTopContainer from "@/components/UserTopContainer";
 import {ApolloProvider} from "@apollo/client";
 import createApolloClient from "../../apollo-client";
+import FinalResult from "@/components/FinalResult";
 
 const client = createApolloClient();
 
 export default function Home() {
     const [username, setUsername] = React.useState('');
     const [getAdultContent, setGetAdultContent] = React.useState(false);
+    const [finalResult, setFinalResult] = React.useState([]);
     const [allFormats, setAllFormats] = React.useState([
         {
             value: "TV",
@@ -101,7 +103,15 @@ export default function Home() {
                     getAdultContent={getAdultContent}
                     allFormats={allFormats}
                     setStage={setStage}
+                    setFinalResult={setFinalResult}
                     NUMBER_OF_CHOICES={NUMBER_OF_CHOICES}
+                />
+            )}
+
+            {stage === 2 && (
+                <FinalResult
+                    finalResult={finalResult}
+                    setStage={setStage}
                 />
             )}
         </ApolloProvider>
