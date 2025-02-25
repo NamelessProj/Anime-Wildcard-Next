@@ -43,14 +43,14 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF
         }
     }, [data, NUMBER_OF_CHOICES]);
 
-    const addAnimeCard = () => setAnimeCards([...animeCards, <AnimeCard key={animeList[currentIndex].media.id} anime={animeList[currentIndex].media} frontImage="/card_back.jpg" blurhash={base64Image} />]);
+    const addAnimeCard = (anime) => setAnimeCards([...animeCards, <AnimeCard key={anime.id} anime={anime} frontImage="/card_back.jpg" blurhash={base64Image} />]);
 
     // Set the anime cards
     React.useEffect(() => {
         const aniLength = animeList.length;
 
         // Check if the anime list is not empty and the current index is less than the length to set the anime cards
-        if(aniLength > 0 && currentIndex < aniLength) addAnimeCard();
+        if(aniLength > 0 && currentIndex < aniLength) addAnimeCard(animeList[currentIndex].media);
 
     }, [currentIndex, animeList]);
 
