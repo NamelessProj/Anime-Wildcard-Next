@@ -9,7 +9,7 @@ const FinalResult = ({finalResult, setStage}) => {
     const initialDelay = 1500; // Delay before the animation starts in milliseconds
 
     return (
-        <main>
+        <main className="flex flex-col items-center justify-center py-10">
             <div className="grid grid-cols-1 gap-6">
                 {Array.from({length: numberOfRows}).map((_, i) => (
                     <div key={i} className="flex md:flex-row flex-wrap justify-center gap-6">
