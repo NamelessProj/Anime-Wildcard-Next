@@ -5,7 +5,7 @@ import TopCard from "@/components/TopCard";
 import AnimeCard from "@/components/AnimeCard";
 import {base64Image} from "@/utils/Base64Image";
 
-const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF_CHOICES}) => {
+const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, setFinalResult, NUMBER_OF_CHOICES}) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [animeList, setAnimeList] = React.useState([]);
@@ -43,6 +43,7 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF
         }
     }, [data, NUMBER_OF_CHOICES]);
 
+    // Add an anime card
     const addAnimeCard = (anime) => setAnimeCards([...animeCards, <AnimeCard key={anime.id} anime={anime} frontImage="/card_back.jpg" blurhash={base64Image} />]);
 
     // Set the anime cards
@@ -50,9 +51,16 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF
         const aniLength = animeList.length;
 
         // Check if the anime list is not empty and the current index is less than the length to set the anime cards
-        if(aniLength > 0 && currentIndex < aniLength) addAnimeCard(animeList[currentIndex].media);
+        if(aniLength > 0 && currentIndex < aniLength){
+            addAnimeCard(animeList[currentIndex].media);
+        }else if(aniLength === NUMBER_OF_CHOICES){
+            // Else if the anime list is full, set the final result, disable the click and go to the next stage after 3 seconds
+            setCanClick(false);
+            setFinalResult(topCardArray);
+            setTimeout(() => setStage(2), 1500);
+        }
 
-    }, [currentIndex, animeList]);
+    }, [currentIndex, animeList, NUMBER_OF_CHOICES, topCardArray]);
 
     // Go back to the form
     const handleBack = (e) => {
