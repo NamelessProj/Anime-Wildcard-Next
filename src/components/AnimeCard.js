@@ -3,7 +3,7 @@ import ReactFlipCard from "reactjs-flip-card";
 import AnimeCardFront from "@/components/AnimeCardFront";
 import AnimeCardBack from "@/components/AnimeCardBack";
 
-const AnimeCard = ({anime, blurhash}) => {
+const AnimeCard = ({anime, frontImage, blurhash}) => {
     const [isFlipped, setIsFlipped] = React.useState(false);
 
     // Flip the card after 2.3 seconds
@@ -38,6 +38,7 @@ const AnimeCard = ({anime, blurhash}) => {
                     <AnimeCardFront
                         cardClassName={cardClassName}
                         imgClassName={imgClassName}
+                        frontImage={frontImage}
                         blurhash={blurhash}
                     />
                 }
