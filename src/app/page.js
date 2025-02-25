@@ -49,7 +49,7 @@ export default function Home() {
         }
     ]);
 
-    const NUMBER_OF_CHOICES = 5; // Number of anime choices
+    const NUMBER_OF_CHOICES = 6; // Number of anime choices
 
     const [error, setError] = React.useState('');
     const [stage, setStage] = React.useState(0);
