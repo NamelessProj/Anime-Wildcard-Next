@@ -3,9 +3,9 @@ import {FaExternalLinkAlt} from "react-icons/fa";
 import {TbRating18Plus} from "react-icons/tb";
 import Tooltip from "rc-tooltip";
 
-const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, blurhash}) => {
+const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, displayInt, blurhash}) => {
     return (
-        <Tooltip placement="bottom" trigger={["hover"]} overlay={<span>{name}</span>}>
+        <Tooltip placement="bottom" trigger={["hover"]} overlay={<span className="text-base">{name}</span>}>
             <div className={`${cardClassName} relative isolate`}>
                 <Image
                     className={`${imgClassName} absolute inset-0 z-0`}
@@ -16,6 +16,13 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, b
                     width={260}
                     height={400}
                 />
+                {typeof displayInt === "number" && (
+                    <div className="absolute left-0 top-0 py-2 px-4 bg-gray-800 bg-opacity-70 backdrop-blur-[2px] rounded-br-xl z-10">
+                        <p className="text-xl">
+                            {displayInt}
+                        </p>
+                    </div>
+                )}
                 <button
                     type="button"
                     onClick={handleClick}
