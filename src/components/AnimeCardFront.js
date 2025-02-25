@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-const AnimeCardFront = ({cardClassName, imgClassName, blurhash}) => {
+const AnimeCardFront = ({cardClassName, imgClassName, frontImage, blurhash}) => {
     return (
         <div className={cardClassName}>
             <Image
                 className={imgClassName}
-                src="/card_back.jpg"
+                src={frontImage}
                 alt=""
                 placeholder="blur"
                 blurDataURL={blurhash}
