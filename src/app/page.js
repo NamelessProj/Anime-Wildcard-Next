@@ -49,6 +49,8 @@ export default function Home() {
         }
     ]);
 
+    const NUMBER_OF_CHOICES = 5; // Number of anime choices
+
     const [error, setError] = React.useState('');
     const [stage, setStage] = React.useState(0);
 
@@ -99,6 +101,7 @@ export default function Home() {
                     getAdultContent={getAdultContent}
                     allFormats={allFormats}
                     setStage={setStage}
+                    NUMBER_OF_CHOICES={NUMBER_OF_CHOICES}
                 />
             )}
         </ApolloProvider>
