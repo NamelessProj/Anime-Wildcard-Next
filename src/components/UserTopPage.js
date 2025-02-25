@@ -40,7 +40,7 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF
                 setCanClick(true);
             }, 3000);
         }
-    }, [data]);
+    }, [data, NUMBER_OF_CHOICES]);
 
     // Set the anime cards
     React.useEffect(() => {
