@@ -4,11 +4,11 @@ import DefaultLoader from "@/components/DefaultLoader";
 import TopCard from "@/components/TopCard";
 import AnimeCard from "@/components/AnimeCard";
 
-const UserTopPage = ({data, getAdultContent, setStage, checkedFormats}) => {
+const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, NUMBER_OF_CHOICES}) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [animeList, setAnimeList] = React.useState([]);
-    const [topCardArray, setTopCardArray] = React.useState(Array(5).fill(null));
+    const [topCardArray, setTopCardArray] = React.useState(Array(NUMBER_OF_CHOICES).fill(null));
     const [error, setError] = React.useState('');
     const [userError, setUserError] = React.useState('');
     const [canClick, setCanClick] = React.useState(false);
@@ -25,14 +25,14 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats}) => {
             const filteredList = shuffledList.filter(entry => checkedFormats.includes(entry.media.format));
 
             // Check if the list has at least 5 anime
-            if(filteredList.length < 5){
-                setError("You need at least 5 anime in your list.");
+            if(filteredList.length < NUMBER_OF_CHOICES){
+                setError(`You need at least ${NUMBER_OF_CHOICES} anime in your list.`);
                 setIsLoading(false);
                 return;
             }
 
             // Set the anime list
-            setAnimeList(filteredList.slice(0, 5));
+            setAnimeList(filteredList.slice(0, NUMBER_OF_CHOICES));
             setIsLoading(false);
 
             // Enable the click after 3 seconds
