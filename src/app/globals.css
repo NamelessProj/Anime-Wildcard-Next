@@ -178,7 +178,7 @@ form .text-input input:required ~ label::after{
 @property --tr-color {
   syntax: '<color>';
   inherits: true;
-  initial-value: red;
+  initial-value: #bc4b27;
 }
 @property --tr-duration {
   syntax: '<time>';
@@ -204,7 +204,7 @@ form .text-input input:required ~ label::after{
 }
 
 .transition-scene-container{
-  animation: transition-container var(--tr-duration) cubic-bezier(0.38, 0.02, 0.25, 1.16) forwards;
+  animation: transition-container calc(var(--tr-duration) + 0.2s) cubic-bezier(0.38, 0.02, 0.25, 1.16) forwards;
 }
 .transition-scene-container .transition-scene{
   background-color: var(--tr-color);
@@ -212,8 +212,8 @@ form .text-input input:required ~ label::after{
   animation: transition-scene var(--tr-duration) cubic-bezier(0.38, 0.02, 0.25, 1.16) forwards;
 }
 
-.transition-scene-container .transition-scene:after,
-.transition-scene-container .transition-scene:before{
+.transition-scene-container .transition-scene::after,
+.transition-scene-container .transition-scene::before{
   content: '';
   position: absolute;
   top: 0;
@@ -221,11 +221,11 @@ form .text-input input:required ~ label::after{
   width: var(--tr-size);
   background-color: var(--tr-color);
 }
-.transition-scene-container .transition-scene:after{
+.transition-scene-container .transition-scene::after{
   right: calc(var(--tr-size) * -1);
   clip-path: polygon(100% 0, 0 0, 0 100%);
 }
-.transition-scene-container .transition-scene:before{
+.transition-scene-container .transition-scene::before{
   left: calc(var(--tr-size) * -1);
   clip-path: polygon(100% 100%, 0 100%, 100% 0);
 }
