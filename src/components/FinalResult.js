@@ -3,7 +3,7 @@ import AnimeCard from "@/components/AnimeCard";
 import {base64Image} from "@/utils/Base64Image";
 import Confetti from "react-confetti-boom";
 
-const FinalResult = ({finalResult, setStage}) => {
+const FinalResult = ({finalResult, setStage, setTransitionScene}) => {
     const [runConfetti, setRunConfetti] = React.useState(false); // State to run the confetti animation
 
     const numberOfRows = Math.ceil(1/2 * (-1 + Math.sqrt(1 + 8 * finalResult.length))); // Calculate the number of rows for the pyramid
@@ -14,6 +14,10 @@ const FinalResult = ({finalResult, setStage}) => {
         const initialDelay = 4500; // Delay before the animation starts in milliseconds
         return initialDelay + totalAnimationDuration * (finalResult.length - index -1) / finalResult.length; // Calculate the delay for the animation, the last card has the smallest delay and the first card has the largest delay
     }
+
+    React.useEffect(() => {
+        setTimeout(() => setTransitionScene(false), 3000); // Remove the transition scene after 2.5 second
+    }, [setTransitionScene]);
 
     React.useEffect(() => {
         const delayForFirstCard = calculateDelay(0); // Calculate the delay for the first card
@@ -51,13 +55,22 @@ const FinalResult = ({finalResult, setStage}) => {
                     </div>
                 ))}
             </div>
-            <div className="my-10 flex justify-center items-center">
+            <div className="mt-10 flex justify-center items-center">
+                <button
+                    type="button"
+                    onClick={() => setStage(1)}
+                    className="mt-6 py-3 px-5 rounded-md bg-blue-600 text-white hover:bg-blue-700 focus-visible:bg-blue-700 transition-colors"
+                >
+                    One More Time
+                </button>
+            </div>
+            <div className="mb-10 flex justify-center items-center">
                 <button
                     type="button"
                     onClick={() => setStage(0)}
-                    className="mt-6 py-3 px-5 rounded-md bg-amber-600 text-white hover:bg-amber-700 transition"
+                    className="mt-6 py-3 px-5 rounded-md bg-amber-600 text-white hover:bg-amber-700 focus-visible:bg-amber-700 transition-colors"
                 >
-                    Go Back
+                    Go To The Form
                 </button>
             </div>
         </main>
