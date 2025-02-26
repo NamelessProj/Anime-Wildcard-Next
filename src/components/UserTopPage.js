@@ -107,7 +107,7 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, setFinalR
                         <button
                             type="button"
                             onClick={handleBack}
-                            className="flex justify-center items-center bg-amber-600 hover:bg-amber-700 focus-visible:bg-amber-700 transition py-3 px-6 rounded-md"
+                            className="flex justify-center items-center bg-amber-600 hover:bg-amber-700 focus-visible:bg-amber-700 transition-colors py-3 px-6 rounded-md"
                         >
                             Back
                         </button>
