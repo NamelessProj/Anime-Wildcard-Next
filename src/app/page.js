@@ -118,6 +118,7 @@ export default function Home() {
                 <FinalResult
                     finalResult={finalResult}
                     setStage={setStage}
+                    setTransitionScene={setTransitionScene}
                 />
             )}
         </ApolloProvider>
