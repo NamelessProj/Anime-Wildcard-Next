@@ -6,6 +6,7 @@ import UserTopContainer from "@/components/UserTopContainer";
 import {ApolloProvider} from "@apollo/client";
 import createApolloClient from "../../apollo-client";
 import FinalResult from "@/components/FinalResult";
+import TransitionScene from "@/components/TransitionScene";
 
 const client = createApolloClient();
 
@@ -56,6 +57,8 @@ export default function Home() {
     const [error, setError] = React.useState('');
     const [stage, setStage] = React.useState(0);
 
+    const [transitionScene, setTransitionScene] = React.useState(false);
+
     const handleCheckChange = (value) => {
         const updatedFormats = allFormats.map((format) => format.value === value ? {...format, checked: !format.checked} : format); // Toggle checked value
         setAllFormats(updatedFormats);
@@ -84,6 +87,8 @@ export default function Home() {
 
     return (
         <ApolloProvider client={client}>
+            {transitionScene && <TransitionScene />}
+
             {stage === 0 && (
                 <UserForm
                     username={username}
@@ -105,6 +110,7 @@ export default function Home() {
                     setStage={setStage}
                     setFinalResult={setFinalResult}
                     NUMBER_OF_CHOICES={NUMBER_OF_CHOICES}
+                    setTransitionScene={setTransitionScene}
                 />
             )}
 
