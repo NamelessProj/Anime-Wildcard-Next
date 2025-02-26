@@ -10,8 +10,8 @@ const FinalResult = ({finalResult, setStage}) => {
     let currentIndex = -1;
 
     const calculateDelay = (index) => {
-        const totalAnimationDuration = 3000; // Total animation duration in milliseconds
-        const initialDelay = 1500; // Delay before the animation starts in milliseconds
+        const totalAnimationDuration = 4000; // Total animation duration in milliseconds
+        const initialDelay = 4500; // Delay before the animation starts in milliseconds
         return initialDelay + totalAnimationDuration * (finalResult.length - index -1) / finalResult.length; // Calculate the delay for the animation, the last card has the smallest delay and the first card has the largest delay
     }
 
