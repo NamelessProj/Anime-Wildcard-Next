@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TransitionScene = () => {
     return (
         <div className="transition-scene-container fixed top-0 left-0 w-svw h-svh z-50 overflow-clip">
