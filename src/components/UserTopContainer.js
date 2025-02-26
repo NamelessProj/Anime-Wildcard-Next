@@ -25,7 +25,7 @@ query ($username: String) {
   }
 }`;
 
-const UserTopContainer = ({username, getAdultContent, setStage, allFormats, setFinalResult, NUMBER_OF_CHOICES}) => {
+const UserTopContainer = ({username, getAdultContent, setStage, allFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene}) => {
     // Filter the formats that are checked
     const checkedFormats = allFormats.filter((format) => format.checked).map((format) => format.value);
 
@@ -72,6 +72,7 @@ const UserTopContainer = ({username, getAdultContent, setStage, allFormats, setF
                                 checkedFormats={checkedFormats}
                                 setFinalResult={setFinalResult}
                                 NUMBER_OF_CHOICES={NUMBER_OF_CHOICES}
+                                setTransitionScene={setTransitionScene}
                             />
                         </main>
                     )}
