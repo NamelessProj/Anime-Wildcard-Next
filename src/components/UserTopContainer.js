@@ -58,7 +58,7 @@ const UserTopContainer = ({username, getAdultContent, getOnlyAdultContent, setSt
                             <button
                                 type="button"
                                 onClick={handleGoBack}
-                                className="flex justify-center items-center bg-amber-600 bg-opacity-60 hover:bg-opacity-100 focus-visible:bg-opacity-100 transition transition-opacity py-3 px-6 rounded-md"
+                                className="flex justify-center items-center bg-amber-600 hover:bg-amber-700 focus-visible:bg-amber-700 transition-colors py-3 px-6 rounded-md"
                             >
                                 Go Back
                             </button>
