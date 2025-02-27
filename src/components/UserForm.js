@@ -1,7 +1,24 @@
 import TextInput from "@/components/TextInput";
 import Checkbox from "@/components/Checkbox";
 
-const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, allFormats, handleNext, handleCheckChange, error}) => {
+const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, getOnlyAdultContent, setGetOnlyAdultContent, allFormats, handleNext, handleCheckChange, error}) => {
+    const handleAdultCheckbox = (e) => {
+        switch(e.target.name){
+            case "getAdultContent":
+                if(getOnlyAdultContent) setGetOnlyAdultContent(false);
+                setGetAdultContent(!getAdultContent);
+                break;
+
+            case "getOnlyAdultContent":
+                if(!getOnlyAdultContent) setGetAdultContent(true);
+                setGetOnlyAdultContent(!getOnlyAdultContent);
+                break;
+
+            default:
+                break;
+        }
+    }
+
     return (
         <main className="flex justify-center items-center">
             <div className="card w-[min(100%,420px)] bg-gray-800 rounded-xl px-10 pt-12 pb-8">
@@ -20,13 +37,27 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, a
                         onChange={(e) => setUsername(e.target.value)}
                         label="Your Anilist username"
                     />
-                    <Checkbox
-                        isChecked={getAdultContent}
-                        handler={(e) => setGetAdultContent(e.target.checked)}
-                        name="getAdultContent"
-                        id="getAdultContent"
-                        label="Include adult content"
-                    />
+                    <div className="my-3 w-full">
+                        <h3 className="text-xl font-medium text-gray-400 mb-3">
+                            Adult content
+                        </h3>
+                        <div className="grid grid-cols-1 gap-2">
+                            <Checkbox
+                                isChecked={getAdultContent}
+                                handler={handleAdultCheckbox}
+                                name="getAdultContent"
+                                id="getAdultContent"
+                                label="Include adult content"
+                            />
+                            <Checkbox
+                                isChecked={getOnlyAdultContent}
+                                handler={handleAdultCheckbox}
+                                name="getOnlyAdultContent"
+                                id="getOnlyAdultContent"
+                                label="Include ONLY adult content"
+                            />
+                        </div>
+                    </div>
                     <div className="my-3 w-full">
                         <h3 className="text-xl font-medium text-gray-400 mb-3">
                             Select formats
