@@ -37,7 +37,7 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                         onChange={(e) => setUsername(e.target.value)}
                         label="Your Anilist username"
                     />
-                    <div className="my-3 w-full">
+                    <div className="mt-3 w-full">
                         <h3 className="text-xl font-medium text-gray-400 mb-3">
                             Adult content
                         </h3>
@@ -58,7 +58,7 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                             />
                         </div>
                     </div>
-                    <div className="my-3 w-full">
+                    <div className="mt-3 w-full">
                         <h3 className="text-xl font-medium text-gray-400 mb-3">
                             Select formats
                         </h3>
@@ -78,7 +78,7 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                     <button
                         type="button"
                         onClick={handleNext}
-                        className="w-full flex justify-center items-center bg-amber-600 hover:bg-amber-700 focus-visible:bg-amber-700 transition-colors py-3 rounded-md"
+                        className="w-full mt-6 flex justify-center items-center bg-amber-600 hover:bg-amber-700 focus-visible:bg-amber-700 transition-colors py-3 rounded-md"
                     >
                         Next
                     </button>
