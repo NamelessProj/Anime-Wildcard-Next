@@ -1,6 +1,5 @@
 import TextInput from "@/components/TextInput";
 import Checkbox from "@/components/Checkbox";
-import FormatCheckbox from "@/components/FormatCheckbox";
 
 const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, allFormats, handleNext, handleCheckChange, error}) => {
     return (
@@ -23,7 +22,7 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, a
                     />
                     <Checkbox
                         isChecked={getAdultContent}
-                        setCheck={setGetAdultContent}
+                        handler={(e) => setGetAdultContent(e.target.checked)}
                         name="getAdultContent"
                         id="getAdultContent"
                         label="Include adult content"
@@ -34,10 +33,13 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, a
                         </h3>
                         <div className="grid grid-cols-[repeat(auto-fit,minmax(105px,1fr))] gap-2">
                             {allFormats.map((format) => (
-                                <FormatCheckbox
+                                <Checkbox
                                     key={format.value}
-                                    format={format}
-                                    onChange={handleCheckChange}
+                                    isChecked={format.checked}
+                                    handler={() => handleCheckChange(format.value)}
+                                    name={format.value}
+                                    id={format.value}
+                                    label={format.label}
                                 />
                             ))}
                         </div>
