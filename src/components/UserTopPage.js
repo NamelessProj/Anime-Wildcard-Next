@@ -26,8 +26,7 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
             if(getOnlyAdultContent) adultContent = shuffledList.filter(entry => entry.media.isAdult); // Get only the adult content
 
             // Filter the list by the checked formats
-            const filteredList = adultContent.length > 0 ? adultContent : shuffledList;
-            shuffledList.filter(entry => checkedFormats.includes(entry.media.format));
+            const filteredList = adultContent.length > 0 ? adultContent.filter(entry => checkedFormats.includes(entry.media.format)) : shuffledList.filter(entry => checkedFormats.includes(entry.media.format));
 
             // Check if the list has at least 5 anime
             if(filteredList.length < NUMBER_OF_CHOICES){
