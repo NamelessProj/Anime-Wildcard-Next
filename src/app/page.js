@@ -13,6 +13,7 @@ const client = createApolloClient();
 export default function Home() {
     const [username, setUsername] = React.useState('');
     const [getAdultContent, setGetAdultContent] = React.useState(false);
+    const [getOnlyAdultContent, setGetOnlyAdultContent] = React.useState(false);
     const [finalResult, setFinalResult] = React.useState([]);
     const [allFormats, setAllFormats] = React.useState([
         {
@@ -95,6 +96,8 @@ export default function Home() {
                     setUsername={setUsername}
                     getAdultContent={getAdultContent}
                     setGetAdultContent={setGetAdultContent}
+                    getOnlyAdultContent={getOnlyAdultContent}
+                    setGetOnlyAdultContent={setGetOnlyAdultContent}
                     allFormats={allFormats}
                     handleNext={handleNext}
                     handleCheckChange={handleCheckChange}
@@ -106,6 +109,7 @@ export default function Home() {
                 <UserTopContainer
                     username={username}
                     getAdultContent={getAdultContent}
+                    getOnlyAdultContent={getOnlyAdultContent}
                     allFormats={allFormats}
                     setStage={setStage}
                     setFinalResult={setFinalResult}
