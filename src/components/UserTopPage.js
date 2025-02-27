@@ -5,7 +5,7 @@ import TopCard from "@/components/TopCard";
 import AnimeCard from "@/components/AnimeCard";
 import {base64Image} from "@/utils/Base64Image";
 
-const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene}) => {
+const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, checkedFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene}) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [animeList, setAnimeList] = React.useState([]);
@@ -22,8 +22,12 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, setFinalR
             const list = data.MediaListCollection.lists.flatMap(list => list.entries); // Flatten the lists
             const shuffledList = shuffleList(getAdultContent ? list : list.filter(entry => !entry.media.isAdult)); // Shuffle the list
 
+            let adultContent = [];
+            if(getOnlyAdultContent) adultContent = shuffledList.filter(entry => entry.media.isAdult); // Get only the adult content
+
             // Filter the list by the checked formats
-            const filteredList = shuffledList.filter(entry => checkedFormats.includes(entry.media.format));
+            const filteredList = adultContent.length > 0 ? adultContent : shuffledList;
+            shuffledList.filter(entry => checkedFormats.includes(entry.media.format));
 
             // Check if the list has at least 5 anime
             if(filteredList.length < NUMBER_OF_CHOICES){
@@ -41,7 +45,7 @@ const UserTopPage = ({data, getAdultContent, setStage, checkedFormats, setFinalR
                 setCanClick(true);
             }, 3000);
         }
-    }, [data, NUMBER_OF_CHOICES]);
+    }, [data, getOnlyAdultContent, NUMBER_OF_CHOICES]);
 
     // Add an anime card
     const addAnimeCard = (anime) => setAnimeCards([...animeCards, <AnimeCard key={anime.id} anime={anime} frontImage="/card_back.jpg" blurhash={base64Image} />]);
