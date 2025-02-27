@@ -25,4 +25,6 @@ The project was made using Next.js, Tailwind CSS, and Anilist API.
 
 You can choose to displayed adult content or not by clicking on the `Include adult content` checkbox before clicking on the `Next` button.
 
+You can even choose to display ONLY adult content by clicking on the `Only adult content` checkbox before clicking on the `Next` button.
+
 You can also choose which anime format you want to display by clicking on the `TV`, `MOVIE`, `OVA`, `ONA`, `SPECIAL`, or `MUSIC` checkboxes.
