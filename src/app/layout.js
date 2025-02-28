@@ -20,7 +20,7 @@ export const metadata = {
         site_name: "Anime Wildcard",
         images: [
             {
-                url: "/Logo.svg",
+                url: "https://anime-wildcard.vercel.app/Logo.svg",
                 width: 800,
                 height: 600,
                 alt: "Anime Wildcard",
