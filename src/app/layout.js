@@ -9,7 +9,7 @@ export const metadata = {
     applicationName: "Anime Wildcard",
     icons: {
         icon: '/Logo.png',
-        shortcut: '/Logo.png',
+        shortcut: '/Logo.ico',
         apple: '/apple-icon.png',
     },
     openGraph: {
