@@ -21,7 +21,8 @@ export const metadata = {
         site_name: "Anime Wildcard",
         images: [
             {
-                url: "/Logo.png",
+                url: "/apple-icon.png",
+                alt: "Anime Wildcard",
             },
         ],
     },
