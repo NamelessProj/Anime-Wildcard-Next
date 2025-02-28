@@ -9,6 +9,7 @@ export const metadata = {
     applicationName: "Anime Wildcard",
     icons: {
         icon: '/Logo.svg',
+        shortcut: '/Logo.svg',
         apple: '/apple-icon.png',
     },
     openGraph: {
@@ -20,10 +21,7 @@ export const metadata = {
         site_name: "Anime Wildcard",
         images: [
             {
-                url: "https://anime-wildcard.vercel.app/Logo.svg",
-                width: 800,
-                height: 600,
-                alt: "Anime Wildcard",
+                url: "/Logo.svg",
             },
         ],
     },
