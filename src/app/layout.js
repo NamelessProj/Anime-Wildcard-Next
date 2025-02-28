@@ -8,8 +8,8 @@ export const metadata = {
     description: "Wanna Make Your TOP 6 Anime Without Knowing What Will Be The Next Anime?",
     applicationName: "Anime Wildcard",
     icons: {
-        icon: '/Logo.svg',
-        shortcut: '/Logo.svg',
+        icon: '/Logo.png',
+        shortcut: '/Logo.png',
         apple: '/apple-icon.png',
     },
     openGraph: {
@@ -21,7 +21,7 @@ export const metadata = {
         site_name: "Anime Wildcard",
         images: [
             {
-                url: "/Logo.svg",
+                url: "/Logo.png",
             },
         ],
     },
