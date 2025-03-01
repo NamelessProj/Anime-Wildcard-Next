@@ -55,6 +55,8 @@ export default function Home() {
 
     const NUMBER_OF_CHOICES = 6; // Number of anime choices
 
+    const TRANSITION_SCENE_DURATION = 4500; // Duration of the transition scene in milliseconds
+
     const [error, setError] = React.useState('');
     const [stage, setStage] = React.useState(0);
 
@@ -88,7 +90,7 @@ export default function Home() {
 
     return (
         <ApolloProvider client={client}>
-            {transitionScene && <TransitionScene />}
+            {transitionScene && <TransitionScene transitionSceneDuration={TRANSITION_SCENE_DURATION} />}
 
             {stage === 0 && (
                 <UserForm
@@ -115,6 +117,7 @@ export default function Home() {
                     setFinalResult={setFinalResult}
                     NUMBER_OF_CHOICES={NUMBER_OF_CHOICES}
                     setTransitionScene={setTransitionScene}
+                    transitionSceneDuration={TRANSITION_SCENE_DURATION}
                 />
             )}
 
@@ -123,6 +126,7 @@ export default function Home() {
                     finalResult={finalResult}
                     setStage={setStage}
                     setTransitionScene={setTransitionScene}
+                    transitionSceneDuration={TRANSITION_SCENE_DURATION}
                 />
             )}
         </ApolloProvider>
