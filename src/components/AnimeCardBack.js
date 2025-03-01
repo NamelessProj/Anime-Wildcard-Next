@@ -16,11 +16,14 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, d
                     width={260}
                     height={400}
                 />
-                {typeof displayInt === "number" && (
-                    <div className="absolute left-0 top-0 py-2 px-4 bg-gray-800 bg-opacity-70 backdrop-blur-[2px] rounded-br-xl z-10">
-                        <p className="text-xl">
-                            {displayInt}
-                        </p>
+                {(typeof displayInt === "number" || anime.isAdult) && (
+                    <div className="absolute left-0 top-0 flex items-center gap-3 py-2 px-4 bg-gray-800 bg-opacity-70 backdrop-blur-[2px] rounded-br-xl z-10">
+                        {typeof displayInt === "number" && (
+                            <p className="text-xl">
+                                {displayInt}
+                            </p>
+                        )}
+                        {anime.isAdult && <TbRating18Plus size={36} color="red" />}
                     </div>
                 )}
                 <button
@@ -30,13 +33,8 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, d
                 >
                     <FaExternalLinkAlt size={17} />
                 </button>
-                {anime.isAdult && (
-                    <div className="absolute left-0 top-0">
-                        <TbRating18Plus size={36} color="red" />
-                    </div>
-                )}
                 <div className="absolute left-0 right-0 bottom-0 p-2 bg-gray-800 bg-opacity-70 backdrop-blur-sm z-10">
-                    <p className="text-nowrap whitespace-nowrap overflow-clip text-xl" style={{textOverflow: "ellipsis"}}>
+                    <p className="text-nowrap whitespace-nowrap overflow-clip text-xl text-ellipsis">
                         {name}
                     </p>
                 </div>
