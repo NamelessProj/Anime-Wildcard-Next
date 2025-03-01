@@ -3,20 +3,21 @@ import AnimeCard from "@/components/AnimeCard";
 import {base64Image} from "@/utils/Base64Image";
 import Confetti from "react-confetti-boom";
 
-const FinalResult = ({finalResult, setStage, setTransitionScene}) => {
+const FinalResult = ({finalResult, setStage, setTransitionScene, transitionSceneDuration}) => {
     const [runConfetti, setRunConfetti] = React.useState(false); // State to run the confetti animation
 
     const numberOfRows = Math.ceil(1/2 * (-1 + Math.sqrt(1 + 8 * finalResult.length))); // Calculate the number of rows for the pyramid
     let currentIndex = -1;
 
+    const totalAnimationDuration = 4000; // Total animation duration in milliseconds
+    const initialDelay = transitionSceneDuration + 1500; // Delay before the card animation starts in milliseconds
+
     const calculateDelay = (index) => {
-        const totalAnimationDuration = 4000; // Total animation duration in milliseconds
-        const initialDelay = 4500; // Delay before the animation starts in milliseconds
         return initialDelay + totalAnimationDuration * (finalResult.length - index -1) / finalResult.length; // Calculate the delay for the animation, the last card has the smallest delay and the first card has the largest delay
     }
 
     React.useEffect(() => {
-        setTimeout(() => setTransitionScene(false), 4500); // Remove the transition scene after 2.5 second
+        setTimeout(() => setTransitionScene(false), transitionSceneDuration / 2 + 100); // Remove the transition scene after half of the duration of the transition scene
     }, [setTransitionScene]);
 
     React.useEffect(() => {
