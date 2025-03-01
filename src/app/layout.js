@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
     title: "Anime Wildcard",
-    description: "Wanna Make Your TOP 6 Anime Without Knowing What Will Be The Next Anime?",
+    description: "You love anime and want to make a top 6 list, but you don't know what to watch next? Let Anime Wildcard help you!",
     applicationName: "Anime Wildcard",
     icons: {
         icon: '/Logo.png',
@@ -14,7 +14,7 @@ export const metadata = {
     },
     openGraph: {
         title: "Anime Wildcard",
-        description: "Wanna Make Your TOP 6 Anime Without Knowing What Will Be The Next Anime?",
+        description: "Wanna Make Your TOP 6 Anime Without Knowing What Will Be The Next Anime? Let Anime Wildcard Help You!",
         type: 'website',
         locale: 'en_US',
         url: "https://anime-wildcard.vercel.app/",
