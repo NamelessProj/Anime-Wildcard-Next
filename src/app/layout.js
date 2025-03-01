@@ -26,7 +26,7 @@ export const metadata = {
             },
         ],
     },
-    manifest: 'https://anime-wildcard.vercel.app/manifest.json',
+    manifest: '/manifest.json',
 };
 
 export default function RootLayout({children}){
