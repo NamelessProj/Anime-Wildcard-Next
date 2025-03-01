@@ -5,7 +5,7 @@ import TopCard from "@/components/TopCard";
 import AnimeCard from "@/components/AnimeCard";
 import {base64Image} from "@/utils/Base64Image";
 
-const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, checkedFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene}) => {
+const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, checkedFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene, transitionSceneDuration}) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [animeList, setAnimeList] = React.useState([]);
@@ -57,11 +57,12 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
         if(aniLength > 0 && currentIndex < aniLength){
             addAnimeCard(animeList[currentIndex].media);
         }else if(aniLength === NUMBER_OF_CHOICES){
-            // Else if the anime list is full, set the final result, disable the click and go to the next stage after 3 seconds
+            // Else if the anime list is full, set the final result, disable the click and go to the next stage after 2.5 seconds
+            const durationBeforeNextStage = 2500;
             setCanClick(false);
             setFinalResult(topCardArray);
-            setTimeout(() => setTransitionScene(true), 2500);
-            setTimeout(() => setStage(2), 3700);
+            setTimeout(() => setTransitionScene(true), durationBeforeNextStage);
+            setTimeout(() => setStage(2), durationBeforeNextStage + transitionSceneDuration / 2);
         }
 
     }, [currentIndex, animeList, NUMBER_OF_CHOICES, topCardArray]);
