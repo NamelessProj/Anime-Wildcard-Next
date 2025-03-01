@@ -16,6 +16,8 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
 
     const [animeCards, setAnimeCards] = React.useState([]);
 
+    const DURATION_OF_NO_CLICK = 2800; // Duration of no click in milliseconds
+
     // Set the anime list
     React.useEffect(() => {
         if(data && data.MediaListCollection && data.MediaListCollection.lists){
@@ -39,10 +41,8 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
             setAnimeList(filteredList.slice(0, NUMBER_OF_CHOICES));
             setIsLoading(false);
 
-            // Enable the click after 3 seconds
-            setTimeout(() => {
-                setCanClick(true);
-            }, 3000);
+            // Enable the click after 2.8 seconds
+            setTimeout(() => setCanClick(true), DURATION_OF_NO_CLICK);
         }
     }, [data, getOnlyAdultContent, NUMBER_OF_CHOICES]);
 
@@ -92,10 +92,8 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
 
         setCurrentIndex(currentIndex + 1);
 
-        // Enable the click after 3 seconds
-        setTimeout(() => {
-            setCanClick(true);
-        }, 3000);
+        // Enable the click after 2.8 seconds
+        setTimeout(() => setCanClick(true), DURATION_OF_NO_CLICK);
     }
 
     return (
