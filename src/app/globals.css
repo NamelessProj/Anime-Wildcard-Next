@@ -183,7 +183,7 @@ form .text-input input:required ~ label::after{
 @property --tr-duration {
   syntax: '<time>';
   inherits: false;
-  initial-value: 4s;
+  initial-value: 4.5s;
 }
 
 @keyframes transition-container {
@@ -195,7 +195,7 @@ form .text-input input:required ~ label::after{
   0%{
     transform: translateX(calc(var(--tr-size) * -2 - 100%));
   }
-  40%, 60%{
+  20%, 80%{
     transform: translateX(calc(var(--tr-size) * -50%));
   }
   100%{
