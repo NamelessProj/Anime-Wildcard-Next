@@ -29,8 +29,8 @@ export const metadata = {
     manifest: 'https://anime-wildcard.vercel.app/manifest.json',
 };
 
-export default function RootLayout({children}) {
-    return (
+export default function RootLayout({children}){
+    return(
         <html lang="en">
         <body>
         <div className="App grid grid-rows-layout min-h-svh">
