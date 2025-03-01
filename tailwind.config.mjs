@@ -13,6 +13,9 @@ export default {
       },
       gridTemplateRows: {
         layout: "auto 1fr auto",
+      },
+      textOverflow: {
+        ellipsis: "ellipsis",
       }
     },
   },
