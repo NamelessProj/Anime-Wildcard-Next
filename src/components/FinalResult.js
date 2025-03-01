@@ -16,7 +16,7 @@ const FinalResult = ({finalResult, setStage, setTransitionScene}) => {
     }
 
     React.useEffect(() => {
-        setTimeout(() => setTransitionScene(false), 3000); // Remove the transition scene after 2.5 second
+        setTimeout(() => setTransitionScene(false), 4500); // Remove the transition scene after 2.5 second
     }, [setTransitionScene]);
 
     React.useEffect(() => {
