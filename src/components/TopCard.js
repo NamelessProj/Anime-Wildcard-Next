@@ -25,8 +25,7 @@ const TopCard = ({index, anime, handler, blurhash}) => {
     }
 
     const typoProps = {
-        className: "text-nowrap whitespace-nowrap overflow-clip",
-        style: {textOverflow: "ellipsis"},
+        className: "text-base font-bold text-nowrap whitespace-nowrap overflow-clip text-ellipsis",
     }
 
     return (
@@ -46,17 +45,9 @@ const TopCard = ({index, anime, handler, blurhash}) => {
                         backComponent={<Image {...imgProps} src={anime ? anime.media.coverImage.large : backCard} placeholder="blur" blurDataURL={blurhash} alt={name} />}
                     />
                 </div>
-                {typeof name === "string" ? (
-                    <p {...typoProps}>
-                        <a href={`https://anilist.co/anime/${anime.media.id}`} target="_blank">
-                            {name}
-                        </a>
-                    </p>
-                ) : (
-                    <p {...typoProps}>
-                        {name}
-                    </p>
-                )}
+                <p {...typoProps}>
+                    {typeof name === "string" ? <a href={`https://anilist.co/anime/${anime.media.id}`} target="_blank">{name}</a> : name}
+                </p>
             </button>
         </Tooltip>
     );
