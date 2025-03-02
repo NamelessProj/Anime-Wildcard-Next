@@ -2,6 +2,7 @@ import "rc-tooltip/assets/bootstrap.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {Analytics} from "@vercel/analytics/next";
 
 export const metadata = {
     title: "Anime Wildcard",
@@ -34,9 +35,10 @@ export default function RootLayout({children}){
         <html lang="en">
         <body>
         <div className="App grid grid-rows-layout min-h-svh">
-            <Header/>
+            <Header />
             {children}
-            <Footer/>
+            <Footer />
+            <Analytics />
         </div>
         </body>
         </html>
