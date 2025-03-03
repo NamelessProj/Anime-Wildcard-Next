@@ -34,7 +34,7 @@ export default function RootLayout({children}){
     return(
         <html lang="en">
         <body>
-        <div className="App grid grid-rows-layout min-h-svh">
+        <div className="App grid grid-rows-layout gap-9 min-h-svh">
             <Header />
             {children}
             <Footer />
