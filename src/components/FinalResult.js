@@ -12,9 +12,7 @@ const FinalResult = ({finalResult, setStage, setTransitionScene, transitionScene
     const totalAnimationDuration = 4000; // Total animation duration in milliseconds
     const initialDelay = transitionSceneDuration + 1500; // Delay before the card animation starts in milliseconds
 
-    const calculateDelay = (index) => {
-        return initialDelay + totalAnimationDuration * (finalResult.length - index -1) / finalResult.length; // Calculate the delay for the animation, the last card has the smallest delay and the first card has the largest delay
-    }
+    const calculateDelay = (index) => initialDelay + totalAnimationDuration * (finalResult.length - index -1) / finalResult.length; // Calculate the delay for the animation, the last card has the smallest delay and the first card has the largest delay
 
     React.useEffect(() => {
         setTimeout(() => setTransitionScene(false), transitionSceneDuration / 2 + 100); // Remove the transition scene after half of the duration of the transition scene
