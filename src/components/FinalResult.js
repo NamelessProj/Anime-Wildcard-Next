@@ -16,12 +16,12 @@ const FinalResult = ({finalResult, setStage, setTransitionScene, transitionScene
 
     React.useEffect(() => {
         setTimeout(() => setTransitionScene(false), transitionSceneDuration / 2 + 100); // Remove the transition scene after half of the duration of the transition scene
-    }, [setTransitionScene]);
+    }, [setTransitionScene, transitionSceneDuration]);
 
     React.useEffect(() => {
         const delayForFirstCard = calculateDelay(0); // Calculate the delay for the first card
         setTimeout(() => setRunConfetti(true), delayForFirstCard); // Run the confetti animation after the first card is flipped
-    }, []);
+    }, [calculateDelay]);
 
     return (
         <main className="flex flex-col items-center justify-center py-10">
