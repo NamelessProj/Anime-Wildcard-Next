@@ -67,6 +67,10 @@ export default function Home() {
         setAllFormats(updatedFormats);
     }
 
+    const totalAnimationDuration = 4000; // Total animation duration in milliseconds
+    const initialDelay = TRANSITION_SCENE_DURATION + 1500; // Delay before the card animation starts in milliseconds
+    const calculateDelay = (index) => initialDelay + totalAnimationDuration * (finalResult.length - index -1) / finalResult.length; // Calculate the delay for the animation, the last card has the smallest delay and the first card has the largest delay
+
     const handleNext = (e) => {
         e.preventDefault();
         setError('');
@@ -127,6 +131,7 @@ export default function Home() {
                     setStage={setStage}
                     setTransitionScene={setTransitionScene}
                     transitionSceneDuration={TRANSITION_SCENE_DURATION}
+                    calculateDelay={calculateDelay}
                 />
             )}
         </ApolloProvider>
