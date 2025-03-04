@@ -41,8 +41,24 @@ const TopCard = ({index, anime, handler, blurhash}) => {
                         flipTrigger="disabled"
                         flipByProp={isFlipped}
                         containerCss="w-24 h-[8.4rem]"
-                        frontComponent={<Image {...imgProps} src={backCard} placeholder="blur" blurDataURL={blurhash} alt="" />}
-                        backComponent={<Image {...imgProps} src={anime ? anime.media.coverImage.large : backCard} placeholder="blur" blurDataURL={blurhash} alt={name} />}
+                        frontComponent={
+                            <Image
+                                {...imgProps}
+                                src={backCard}
+                                placeholder="blur"
+                                blurDataURL={blurhash}
+                                alt=""
+                            />
+                        }
+                        backComponent={
+                            <Image
+                                {...imgProps}
+                                src={anime ? anime.media.coverImage.large : backCard}
+                                placeholder="blur"
+                                blurDataURL={blurhash}
+                                alt={name}
+                            />
+                        }
                     />
                 </div>
                 <p {...typoProps}>
