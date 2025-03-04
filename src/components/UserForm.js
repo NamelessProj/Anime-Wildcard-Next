@@ -30,6 +30,9 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                     </div>
                 )}
                 <form onSubmit={handleNext}>
+                    <h3>
+                        Anime
+                    </h3>
                     <TextInput
                         id="username"
                         name="username"
