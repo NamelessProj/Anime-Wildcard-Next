@@ -9,6 +9,12 @@ const FinalResult = ({finalResult, setStage, setTransitionScene, transitionScene
     const numberOfRows = Math.ceil(1/2 * (-1 + Math.sqrt(1 + 8 * finalResult.length))); // Calculate the number of rows for the pyramid
     let currentIndex = -1;
 
+    // Scroll to the last row
+    React.useEffect(() => {
+        const el = document.querySelector('.card-row-container');
+        if(el && typeof el.scrollIntoView === "function") el.scrollIntoView({behavior: 'smooth', block: 'end'});
+    }, []);
+
     React.useEffect(() => {
         setTimeout(() => setTransitionScene(false), transitionSceneDuration / 2 + 100); // Remove the transition scene after half of the duration of the transition scene
     }, [setTransitionScene, transitionSceneDuration]);
@@ -25,13 +31,13 @@ const FinalResult = ({finalResult, setStage, setTransitionScene, transitionScene
                 particleCount={500}
                 launchSpeed={3}
             />}
-            <div className="grid grid-cols-1 gap-6">
+            <div className="card-row-container scroll-mb-4 grid grid-cols-1 gap-6">
                 {Array.from({length: numberOfRows}).map((_, i) => (
-                    <div key={i} className="flex md:flex-row flex-wrap justify-center gap-6">
+                    <div key={i} className="row flex md:flex-row flex-wrap justify-center gap-6">
                         {Array.from({length: i + 1}).map((_, j) => {
                             currentIndex++;
                             return (
-                                <div key={j} className="flex justify-center items-center">
+                                <div key={j} className="card flex justify-center items-center">
                                     {finalResult[currentIndex] && (
                                         <AnimeCard
                                             anime={finalResult[currentIndex].media}
