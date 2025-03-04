@@ -17,7 +17,7 @@ const AnimeCard = ({className="anime-card fixed left-1/2 bottom-[50px] z-10", do
 
     const imgClassName = "w-full h-full object-cover";
 
-    const cardClassName = "w-60 h-96 rounded-md overflow-clip";
+    const cardClassName = "w-[17rem] h-96 rounded-md overflow-clip";
 
     // Open the anime page on AniList
     const handleClick = (e) => {
