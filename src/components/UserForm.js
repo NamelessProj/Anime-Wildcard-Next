@@ -1,3 +1,4 @@
+import React from "react";
 import TextInput from "@/components/TextInput";
 import Checkbox from "@/components/Checkbox";
 
@@ -19,6 +20,16 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
         }
     }
 
+    const [indexSelected, setIndexSelected] = React.useState(0);
+
+    const handleTabChange = (index) => {
+        setIndexSelected(index);
+    }
+
+    const tabBase = "tab flex justify-center items-center py-2 px-4 rounded-md transition-colors"
+    const tabClassName = `${tabBase} bg-gray-700`;
+    const selectedTabClassName = `${tabBase} tab-selected bg-amber-600`;
+
     return (
         <main className="flex justify-center items-center">
             <div className="card w-[min(100%,420px)] bg-gray-800 rounded-xl px-10 pt-12 pb-8">
@@ -30,9 +41,22 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                     </div>
                 )}
                 <form onSubmit={handleNext}>
-                    <h3>
-                        Anime
-                    </h3>
+                    <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3 mb-3">
+                        <button
+                            type="button"
+                            onClick={() => handleTabChange(0)}
+                            className={indexSelected === 0 ? selectedTabClassName : tabClassName}
+                        >
+                            Anime
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => handleTabChange(1)}
+                            className={indexSelected === 1 ? selectedTabClassName : tabClassName}
+                        >
+                            Manga
+                        </button>
+                    </div>
                     <TextInput
                         id="username"
                         name="username"
