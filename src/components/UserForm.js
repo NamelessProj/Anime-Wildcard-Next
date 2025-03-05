@@ -1,8 +1,7 @@
-import React from "react";
 import TextInput from "@/components/TextInput";
 import Checkbox from "@/components/Checkbox";
 
-const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, getOnlyAdultContent, setGetOnlyAdultContent, allFormats, handleNext, handleCheckChange, error}) => {
+const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, getOnlyAdultContent, setGetOnlyAdultContent, indexSelected, setIndexSelected, allFormats, handleNext, handleCheckChange, error}) => {
     const handleAdultCheckbox = (e) => {
         switch(e.target.name){
             case "getAdultContent":
@@ -18,12 +17,6 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
             default:
                 break;
         }
-    }
-
-    const [indexSelected, setIndexSelected] = React.useState(0);
-
-    const handleTabChange = (index) => {
-        setIndexSelected(index);
     }
 
     const tabBase = "tab flex justify-center items-center py-2 px-4 rounded-md transition-colors"
@@ -44,14 +37,14 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                     <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3 mb-3">
                         <button
                             type="button"
-                            onClick={() => handleTabChange(0)}
+                            onClick={() => setIndexSelected(0)}
                             className={indexSelected === 0 ? selectedTabClassName : tabClassName}
                         >
                             Anime
                         </button>
                         <button
                             type="button"
-                            onClick={() => handleTabChange(1)}
+                            onClick={() => setIndexSelected(1)}
                             className={indexSelected === 1 ? selectedTabClassName : tabClassName}
                         >
                             Manga
