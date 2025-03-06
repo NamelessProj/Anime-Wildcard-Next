@@ -143,11 +143,13 @@ export default function Home() {
                     getAdultContent={getAdultContent}
                     getOnlyAdultContent={getOnlyAdultContent}
                     allFormats={allFormats}
+                    allMangaFormats={allMangaFormats}
                     setStage={setStage}
                     setFinalResult={setFinalResult}
                     NUMBER_OF_CHOICES={NUMBER_OF_CHOICES}
                     setTransitionScene={setTransitionScene}
                     transitionSceneDuration={TRANSITION_SCENE_DURATION}
+                    indexSelected={indexSelected}
                 />
             )}
 
