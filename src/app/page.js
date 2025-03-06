@@ -12,7 +12,7 @@ const client = createApolloClient();
 
 export default function Home() {
     const [username, setUsername] = React.useState('');
-    const [indexSelected, setIndexSelected] = React.useState(0); // 0 for anime, 1 for manga
+    const [indexSelected, setIndexSelected] = React.useState('ANIME');
     const [getAdultContent, setGetAdultContent] = React.useState(false);
     const [getOnlyAdultContent, setGetOnlyAdultContent] = React.useState(false);
     const [finalResult, setFinalResult] = React.useState([]);
