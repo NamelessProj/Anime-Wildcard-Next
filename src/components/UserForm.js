@@ -37,15 +37,15 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                     <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3 mb-3">
                         <button
                             type="button"
-                            onClick={() => setIndexSelected(0)}
-                            className={indexSelected === 0 ? selectedTabClassName : tabClassName}
+                            onClick={() => setIndexSelected('ANIME')}
+                            className={indexSelected === 'ANIME' ? selectedTabClassName : tabClassName}
                         >
                             Anime
                         </button>
                         <button
                             type="button"
-                            onClick={() => setIndexSelected(1)}
-                            className={indexSelected === 1 ? selectedTabClassName : tabClassName}
+                            onClick={() => setIndexSelected('MANGA')}
+                            className={indexSelected === 'MANGA' ? selectedTabClassName : tabClassName}
                         >
                             Manga
                         </button>
