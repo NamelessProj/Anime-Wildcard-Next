@@ -34,7 +34,7 @@ const AnimeCard = ({className="anime-card fixed left-1/2 bottom-[50px] z-10", do
                 direction="horizontal"
                 flipTrigger="disabled"
                 flipByProp={isFlipped}
-                containerCss="w-60 h-96"
+                containerCss="w-[17rem] h-96"
                 frontComponent={
                     <AnimeCardFront
                         cardClassName={cardClassName}
