@@ -34,7 +34,7 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                     </div>
                 )}
                 <form onSubmit={handleNext}>
-                    <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3 mb-3">
+                    <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3 mb-9">
                         <button
                             type="button"
                             onClick={() => setIndexSelected('ANIME')}
