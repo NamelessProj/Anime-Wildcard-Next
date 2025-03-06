@@ -4,8 +4,8 @@ import UserTopPage from "@/components/UserTopPage";
 
 // Define the query to fetch the user's anime list
 const ANIME_QUERY = gql`
-query ($username: String) {
-  MediaListCollection (userName: $username, type: ANIME, status_not_in: [PAUSED, PLANNING, DROPPED]) {
+query ($username: String, $type: MediaType) {
+  MediaListCollection (userName: $username, type: $type, status_not_in: [PAUSED, PLANNING, DROPPED]) {
     lists {
       entries {
         media {
@@ -25,13 +25,16 @@ query ($username: String) {
   }
 }`;
 
-const UserTopContainer = ({username, getAdultContent, getOnlyAdultContent, setStage, allFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene, transitionSceneDuration}) => {
+const UserTopContainer = ({username, getAdultContent, getOnlyAdultContent, setStage, allFormats, allMangaFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene, transitionSceneDuration, indexSelected}) => {
     // Filter the formats that are checked
-    const checkedFormats = allFormats.filter((format) => format.checked).map((format) => format.value);
+    const checkedFormats = indexSelected === 'ANIME' ? allFormats.filter((format) => format.checked).map((format) => format.value) : allMangaFormats.filter((format) => format.checked).map((format) => format.value);
 
     // Fetch the user's anime list
     const {loading, error, data} = useQuery(ANIME_QUERY, {
-        variables: {username}
+        variables: {
+            username,
+            type: indexSelected
+        }
     });
 
     // Go back to the form
