@@ -53,6 +53,23 @@ export default function Home() {
             checked: false
         }
     ]);
+    const [allMangaFormats, setAllMangaFormats] = React.useState([
+        {
+            value: "MANGA",
+            label: "Manga",
+            checked: true
+        },
+        {
+            value: "LIGHT_NOVEL",
+            label: "Light Novel",
+            checked: true
+        },
+        {
+            value: "ONE_SHOT",
+            label: "One Shot",
+            checked: true
+        }
+    ]);
 
     const NUMBER_OF_CHOICES = 6; // Number of anime choices
 
@@ -63,9 +80,14 @@ export default function Home() {
 
     const [transitionScene, setTransitionScene] = React.useState(false);
 
-    const handleCheckChange = (value) => {
-        const updatedFormats = allFormats.map((format) => format.value === value ? {...format, checked: !format.checked} : format); // Toggle checked value
-        setAllFormats(updatedFormats);
+    const handleCheckChange = (value, type='ANIME') => {
+        if(type === "ANIME"){
+            const updatedFormats = allFormats.map((format) => format.value === value ? {...format, checked: !format.checked} : format); // Toggle checked value
+            setAllFormats(updatedFormats);
+        }else{
+            const updatedFormats = allMangaFormats.map((format) => format.value === value ? {...format, checked: !format.checked} : format); // Toggle checked value
+            setAllMangaFormats(updatedFormats);
+        }
     }
 
     const totalAnimationDuration = 4000; // Total animation duration in milliseconds
@@ -108,6 +130,7 @@ export default function Home() {
                     indexSelected={indexSelected}
                     setIndexSelected={setIndexSelected}
                     allFormats={allFormats}
+                    allMangaFormats={allMangaFormats}
                     handleNext={handleNext}
                     handleCheckChange={handleCheckChange}
                     error={error}
