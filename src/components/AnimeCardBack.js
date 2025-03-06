@@ -17,7 +17,7 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, d
                     height={400}
                 />
                 {(typeof displayInt === "number" || anime.isAdult) && (
-                    <div className="absolute left-0 top-0 flex items-center gap-3 py-2 px-4 bg-gray-800 bg-opacity-70 backdrop-blur-[2px] rounded-br-xl z-10">
+                    <div className="absolute left-0 top-0 flex items-center gap-3 py-2 px-4 bg-gray-800 bg-opacity-50 backdrop-blur-[1px] rounded-br-xl z-10">
                         {typeof displayInt === "number" && (
                             <p className="text-xl">
                                 {displayInt}
@@ -29,9 +29,9 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, d
                 <button
                     type="button"
                     onClick={handleClick}
-                    className="absolute right-0 top-0 p-5 rounded-md backdrop-blur-[2px] text-amber-600"
+                    className="absolute right-0 top-0 p-3 rounded-md bg-gray-800 bg-opacity-20 hover:bg-opacity-30 focus-visible:bg-opacity-30 backdrop-blur-[1px] text-amber-600"
                 >
-                    <FaExternalLinkAlt size={17} />
+                    <FaExternalLinkAlt size={14} />
                 </button>
                 <div className="absolute left-0 right-0 bottom-0 p-2 bg-gray-800 bg-opacity-70 backdrop-blur-sm z-10">
                     <p className="text-nowrap whitespace-nowrap overflow-clip text-xl text-ellipsis">

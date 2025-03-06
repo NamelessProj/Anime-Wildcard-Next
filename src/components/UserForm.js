@@ -1,7 +1,7 @@
 import TextInput from "@/components/TextInput";
 import Checkbox from "@/components/Checkbox";
 
-const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, getOnlyAdultContent, setGetOnlyAdultContent, allFormats, handleNext, handleCheckChange, error}) => {
+const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, getOnlyAdultContent, setGetOnlyAdultContent, indexSelected, setIndexSelected, allFormats, allMangaFormats, handleNext, handleCheckChange, error}) => {
     const handleAdultCheckbox = (e) => {
         switch(e.target.name){
             case "getAdultContent":
@@ -19,6 +19,10 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
         }
     }
 
+    const tabBase = "tab flex justify-center items-center py-2 px-4 rounded-md transition-colors"
+    const tabClassName = `${tabBase} bg-gray-700`;
+    const selectedTabClassName = `${tabBase} tab-selected bg-amber-600`;
+
     return (
         <main className="flex justify-center items-center">
             <div className="card w-[min(100%,420px)] bg-gray-800 rounded-xl px-10 pt-12 pb-8">
@@ -30,6 +34,22 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                     </div>
                 )}
                 <form onSubmit={handleNext}>
+                    <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3 mb-3">
+                        <button
+                            type="button"
+                            onClick={() => setIndexSelected('ANIME')}
+                            className={indexSelected === 'ANIME' ? selectedTabClassName : tabClassName}
+                        >
+                            Anime
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => setIndexSelected('MANGA')}
+                            className={indexSelected === 'MANGA' ? selectedTabClassName : tabClassName}
+                        >
+                            Manga
+                        </button>
+                    </div>
                     <TextInput
                         id="username"
                         name="username"
@@ -63,11 +83,21 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                             Select formats
                         </h3>
                         <div className="grid grid-cols-[repeat(auto-fit,minmax(105px,1fr))] gap-2">
-                            {allFormats.map((format) => (
+                            {indexSelected === 'ANIME' && allFormats.map((format) => (
                                 <Checkbox
                                     key={format.value}
                                     isChecked={format.checked}
                                     handler={() => handleCheckChange(format.value)}
+                                    name={format.value}
+                                    id={format.value}
+                                    label={format.label}
+                                />
+                            ))}
+                            {indexSelected === 'MANGA' && allMangaFormats.map((format) => (
+                                <Checkbox
+                                    key={format.value}
+                                    isChecked={format.checked}
+                                    handler={() => handleCheckChange(format.value, 'MANGA')}
                                     name={format.value}
                                     id={format.value}
                                     label={format.label}
