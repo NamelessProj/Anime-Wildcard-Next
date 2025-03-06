@@ -1,7 +1,7 @@
 import TextInput from "@/components/TextInput";
 import Checkbox from "@/components/Checkbox";
 
-const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, getOnlyAdultContent, setGetOnlyAdultContent, indexSelected, setIndexSelected, allFormats, handleNext, handleCheckChange, error}) => {
+const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, getOnlyAdultContent, setGetOnlyAdultContent, indexSelected, setIndexSelected, allFormats, allMangaFormats, handleNext, handleCheckChange, error}) => {
     const handleAdultCheckbox = (e) => {
         switch(e.target.name){
             case "getAdultContent":
@@ -83,11 +83,21 @@ const UserForm = ({username, setUsername, getAdultContent, setGetAdultContent, g
                             Select formats
                         </h3>
                         <div className="grid grid-cols-[repeat(auto-fit,minmax(105px,1fr))] gap-2">
-                            {allFormats.map((format) => (
+                            {indexSelected === 'ANIME' && allFormats.map((format) => (
                                 <Checkbox
                                     key={format.value}
                                     isChecked={format.checked}
                                     handler={() => handleCheckChange(format.value)}
+                                    name={format.value}
+                                    id={format.value}
+                                    label={format.label}
+                                />
+                            ))}
+                            {indexSelected === 'MANGA' && allMangaFormats.map((format) => (
+                                <Checkbox
+                                    key={format.value}
+                                    isChecked={format.checked}
+                                    handler={() => handleCheckChange(format.value, 'MANGA')}
                                     name={format.value}
                                     id={format.value}
                                     label={format.label}
