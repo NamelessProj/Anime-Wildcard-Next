@@ -32,7 +32,7 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
 
             // Check if the list has at least 5 anime
             if(filteredList.length < NUMBER_OF_CHOICES){
-                setError(`You need at least ${NUMBER_OF_CHOICES} anime in your list.`);
+                setError(`You need at least ${NUMBER_OF_CHOICES} entries in your list.`);
                 setIsLoading(false);
                 return;
             }
