@@ -16,7 +16,7 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
 
     const [animeCards, setAnimeCards] = React.useState([]);
 
-    const DURATION_OF_NO_CLICK = 2800; // Duration of no click in milliseconds
+    const DURATION_OF_NO_CLICK = 2700; // Duration of no click in milliseconds
 
     // Set the anime list
     React.useEffect(() => {
