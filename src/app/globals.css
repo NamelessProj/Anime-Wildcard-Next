@@ -1,6 +1,11 @@
+/* ======== TAILWIND ======== */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* ======== GLOBALS ======== */
 
 @property --accent {
   syntax: '<color>';
@@ -80,6 +85,8 @@ form .text-input input:required ~ label::after{
 
 
 
+/* ======== CHECKBOXES ======== */
+
 .checkbox-container label{
   display: block;
   position: relative;
@@ -135,6 +142,8 @@ form .text-input input:required ~ label::after{
 
 
 
+/* ======== ANIME CARD ======== */
+
 @property --anime-card-animation-duration {
   syntax: '<time>';
   inherits: false;
@@ -169,6 +178,8 @@ form .text-input input:required ~ label::after{
 }
 
 
+
+/* ======== TRANSITION SCENE ======== */
 
 @property --tr-size {
   syntax: '<length>';
@@ -231,6 +242,8 @@ form .text-input input:required ~ label::after{
 }
 
 
+
+/* ======== MEDIA QUERIES ======== */
 
 @media screen and (width < 900px) {
   form .text-input{
