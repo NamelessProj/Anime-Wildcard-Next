@@ -78,7 +78,7 @@ export default function Home() {
     const [error, setError] = React.useState('');
     const [stage, setStage] = React.useState(0);
 
-    const [transitionScene, setTransitionScene] = React.useState(false);
+    const [transitionScene, setTransitionScene] = React.useState(false); // Transition scene state
 
     const handleCheckChange = (value, type='ANIME') => {
         if(type === "ANIME"){
