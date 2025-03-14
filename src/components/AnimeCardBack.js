@@ -31,7 +31,7 @@ const AnimeCardBack = ({anime, name, cardClassName, imgClassName, handleClick, d
                     onClick={handleClick}
                     className="absolute right-0 top-0 p-3 rounded-md bg-gray-800 bg-opacity-20 hover:bg-opacity-30 focus-visible:bg-opacity-30 backdrop-blur-[1px] text-amber-600"
                 >
-                    <FaExternalLinkAlt size={14} />
+                    <FaExternalLinkAlt size={20} />
                 </button>
                 <div className="absolute left-0 right-0 bottom-0 p-2 bg-gray-800 bg-opacity-70 backdrop-blur-sm z-10">
                     <p className="text-nowrap whitespace-nowrap overflow-clip text-xl text-ellipsis">
