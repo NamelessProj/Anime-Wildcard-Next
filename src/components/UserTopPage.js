@@ -5,7 +5,7 @@ import TopCard from "@/components/TopCard";
 import AnimeCard from "@/components/AnimeCard";
 import {base64Image} from "@/utils/Base64Image";
 
-const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, checkedFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene, transitionSceneDuration}) => {
+const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, type, setStage, checkedFormats, setFinalResult, NUMBER_OF_CHOICES, setTransitionScene, transitionSceneDuration}) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [animeList, setAnimeList] = React.useState([]);
@@ -47,7 +47,7 @@ const UserTopPage = ({data, getAdultContent, getOnlyAdultContent, setStage, chec
     }, [data, getOnlyAdultContent, NUMBER_OF_CHOICES]);
 
     // Add an anime card
-    const addAnimeCard = (anime) => setAnimeCards([...animeCards, <AnimeCard key={anime.id} anime={anime} frontImage="/card_back.jpg" blurhash={base64Image} />]);
+    const addAnimeCard = (anime) => setAnimeCards([...animeCards, <AnimeCard key={anime.id} type={type} anime={anime} frontImage="/card_back.jpg" blurhash={base64Image} />]);
 
     // Set the anime cards
     React.useEffect(() => {
