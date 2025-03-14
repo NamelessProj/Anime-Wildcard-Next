@@ -71,6 +71,7 @@ const UserTopContainer = ({username, getAdultContent, getOnlyAdultContent, setSt
                             <UserTopPage
                                 data={data}
                                 getAdultContent={getAdultContent}
+                                type={indexSelected.toLowerCase()}
                                 getOnlyAdultContent={getOnlyAdultContent}
                                 setStage={setStage}
                                 checkedFormats={checkedFormats}
