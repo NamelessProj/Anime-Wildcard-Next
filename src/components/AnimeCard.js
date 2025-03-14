@@ -3,7 +3,7 @@ import ReactFlipCard from "reactjs-flip-card";
 import AnimeCardFront from "@/components/AnimeCardFront";
 import AnimeCardBack from "@/components/AnimeCardBack";
 
-const AnimeCard = ({className="anime-card fixed left-1/2 bottom-[50px] z-10", doRotate=true, displayInt, timeBeforeFlip=2300, anime, frontImage, blurhash}) => {
+const AnimeCard = ({className="anime-card fixed left-1/2 bottom-[50px] z-10", doRotate=true, type="anime", displayInt, timeBeforeFlip=2300, anime, frontImage, blurhash}) => {
     const [isFlipped, setIsFlipped] = React.useState(false);
     const [style, setStyle] = React.useState({});
 
@@ -22,7 +22,7 @@ const AnimeCard = ({className="anime-card fixed left-1/2 bottom-[50px] z-10", do
     // Open the anime page on AniList
     const handleClick = (e) => {
         e.preventDefault();
-        window.open(`https://anilist.co/anime/${anime.id}`, "_blank");
+        window.open(`https://anilist.co/${type}/${anime.id}`, "_blank");
     }
 
     // Get the anime name
