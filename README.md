@@ -28,3 +28,6 @@ You can choose to displayed adult content or not by clicking on the `Include adu
 You can even choose to display ONLY adult content by clicking on the `Only adult content` checkbox before clicking on the `Next` button.
 
 You can also choose which anime format you want to display by clicking on the `TV`, `MOVIE`, `OVA`, `ONA`, `SPECIAL`, or `MUSIC` checkboxes.
+
+## What if i want to play with my manga list?
+Don't worry, you only have to select the `Manga` tab in the form at the begining.
