@@ -1,3 +1,12 @@
+<p align="center">
+<img src="https://img.shields.io/github/package-json/dependency-version/NamelessProj/Anime-Wildcard-Next/react/master" alt="React version"/>
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/github/license/NamelessProj/Anime-Wildcard-Next" alt="licence"/>
+<img src="https://img.shields.io/github/repo-size/NamelessProj/Anime-Wildcard-Next" alt="repo size"/>
+</p>
+
 # Wanna Make Your TOP 6 Anime Without Knowing What Will Be The Next Anime?
 Then you are in the right place! This project will help you to make your top 6 anime without knowing what will be the next anime.
 
